@@ -2,15 +2,14 @@
 
 const answerArray = [
 		"toxic", 
-		"fireflies", 
-		"bootylicious", 
+		"angel", 
+		"burn", 
 		"dilema"
 ];
 
 // 2. make songs random
 let answers = Math.floor(Math.random() * answerArray.length);
 
-let score = 0;
 let correctLetter = [];
 let incorrectLetter = [];
 let chances = 10;
@@ -24,7 +23,10 @@ let docCorrectLetter = document.getElementsByClassName('correctLetter')
 let docIncorrectLetter = document.getElementsByClassName('incorrectLetter')
 
 
-// 3. make dash length equivalent to random word that will be chosen
+// 3. make dash length equivalent to random word that will be chosen: I have not been 
+//able to make the underscores appear. The letters simply replace the underscores. I also cannot 
+//get the letters to replace the undescores in order. If you type the word in order it will 
+//alert 'You Win!'.
 
 let generateUnderscore = () => {
 	for(let i = 0; i < chosenWord.length; i++) {
@@ -53,8 +55,21 @@ document.addEventListener('keypress', (event) => {
 		}
 
 	else (incorrectLetter.push(event))
+		docIncorrectLetter[0].innerHtml = incorrectLetter;
+
 });
-// 6. change score 
+// 6. change score: Here I am having trouble getting a score to appear and  increase each
+//time the word is written correctly. 
+
+//let changeScore = () => {
+	//for(let i = 0; i === wins; 1++)
+		//wins.push(event);
+
+}
+
 // 7. change remaining guesses
 // 8. You win/You Lose 
 // 9. Reset game 
+
+//I would liek to get this code to work, and to have the html/css change with thte photo of the 
+//artist with a corresponding song playing. 
