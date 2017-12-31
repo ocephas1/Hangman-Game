@@ -9,7 +9,7 @@ div {
 
 }
 
-.div2 {
+#div2 {
 	text-align: left;
 	width: 600px;
 	margin-left: 0px;
@@ -35,11 +35,9 @@ h1 {
 	text-align: center;
 }
 
-h2, 
-h3, 
-h4, 
-h5, 
-h6 {
+#incorrectLetter,
+#div1,
+#guessForm {
 	padding top: 60px;
 	color: #5181DB;
 	font-size: 25px;

@@ -4,7 +4,7 @@
 		<title>HangMan-Game</title>
 
 		<link rel="stylesheet" type=text/css href="assets/css/style.css">
-		<script src="assets/javascript/game.js"></script>
+		<script src="assets/javascript/game1.js"></script>
 
 	</head>
 
@@ -27,32 +27,28 @@
 
 	</div>
 
-			<div class="div2">
+			<div id="guessForm">
+			
+		 	<p id="div1"></p>
 
-		 			<h2>Press Any Key To Get Started!</h2>
+		 	<form name="letterGuesses">
+		 			<input name="letterDisplay" type="text" size="5"
+					maxlength="1">
 
-		 			<h3>Wins!</h3>
+					<input name="guessButton" type="button" value="Guess"
+					onClick="displayGuess()">
+			
+			<p id="incorrectLetter">Letters Already Guessed:</p>
+				<p id="displayLetter"></p>
 
-		 			<p class="wins"></p>
+					<input name="refresh" type="button" value="New Game"
+					onClick="loctaion.reload()">
+			</form>
 
-					<h4>Current Word</h4>
-
-						<p class="correctLetter"></p>
-
-
-					 	<p class="underScore">____ ____  ____  ____  ____</P>
-
-
-					<h5>Number of Guesses Remaining:</h5>
-						
-						<p class="chances"></p>
-
-
-					<h6>Letters Already Guessed:</h6>
-
-						<p class="incorrectLetter"></p>
 			</div>
 
+			
+		
 </body>
 
 <html>
