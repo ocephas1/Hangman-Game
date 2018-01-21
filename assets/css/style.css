@@ -45,7 +45,7 @@ h1 {
 
 }
 
-p {
+p, h3{
 	color: #FC12C2;
 	text-align: center;
 	font-weight: bold;

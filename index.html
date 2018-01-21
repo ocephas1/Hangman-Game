@@ -4,14 +4,14 @@
 		<title>HangMan-Game</title>
 
 		<link rel="stylesheet" type=text/css href="assets/css/style.css">
-		<script src="assets/javascript/game1.js"></script>
+
 
 	</head>
 
 	<header>
 		<nav>
 
-		<h1>Hangman Early 2000s Pop Style!</h1>
+		<h1 class="chrome">Hangman Early 2000s Pop Style!</h1>
 
 		<nav>
 
@@ -20,17 +20,40 @@
 
 <body>
 
-	<div>
-			<img src="assets/images/britney.jpg">
+	<div id="artist-div"></div>
 
+	<div id="container">
+		<h2 id="music"></h2>
 
+		
 
-	</div>
-
-			<div id="guessForm">
 			
-		 	<p id="div1"></p>
+		 	<p id="div1">Press any key to get started!</p>
 
+
+		 	<h3 class="section-title">Wins:</h3>
+
+		 		<br>
+		 		<br>
+		 		
+				<h3 class="section-title">Current Word:</h3>
+
+				<br>
+				<br>
+
+			
+		 		<h3 class="section-title">Number of Guesses Remaining:</h3>
+
+		 		<br>
+		 		<br>
+
+		 
+		 		<h3 class="section-title">Letters Already Guessed:</h3>
+
+
+
+
+<!-- 
 		 	<form name="letterGuesses">
 		 			<input name="letterDisplay" type="text" size="5"
 					maxlength="1">
@@ -44,11 +67,10 @@
 					<input name="refresh" type="button" value="New Game"
 					onClick="loctaion.reload()">
 			</form>
-
-			</div>
-
-			
+ -->
+	
+</div>
+		<script src="assets/javascript/game1.js"></script>		
 		
-</body>
-
+	</body>
 <html>
