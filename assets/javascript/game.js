@@ -5,24 +5,25 @@ let game = {
 	answerArray: {
 
 			britney: {
-				picture: "Britney.jpg",
+				picture: "images/Britney.jpg",
 				song: "toxic",
 				preview: "http://musicmegaboxen.net/song/436258-toxic/",
 
 			},
 
 			usher: {
-				picture: "usher.jpeg"
-				song: "Burn",
+				picture: "images/usher.jpeg",
+				song: "burn",
 				preview: "http://musicmegaboxen.net/song/91655-Burn/",
-			}
+			},
 
 
 			pink: {
-				picture: "pink.jpeg",
+				picture: "images/pink.jpeg",
 				song: "Get This Party Started",
 				preview: "http://musicmegaboxen.net/song/12862-Get_The_Party_Started/",
-				} 
+			}
+	},
 			
 
 //sets start of game
@@ -66,13 +67,12 @@ updatePage: function(letter) {
 		//check and handle correct guesses
 		this.updateMatchedLetters(letter);
 		//Rebuild view of word. Reveal guessed letters, underscores remain for unguessed letters
-		this.rebuildWordView();
+		this.setUnderscore();
 		//If user wins, restart game
 		if (this.updateWins() === true) {
 			this.restartGame();
 		}
 	}
-}
 
 },
 //This function reacts to user making incorrect guess for the first time
@@ -121,7 +121,7 @@ updateMatchedLetters: function(letter) {
 
 
 //Function builds the display of the word that is currently being guessed for letters not guessed in order
-rebuildWordView: function() {
+setUnderscore: function() {
 	//Begin with empty string 
 
 	let wordView = "";
@@ -131,7 +131,7 @@ rebuildWordView: function() {
 	for (let i = 0; i < this.lettersOfWord.length; i ++) {
 
 		//Unguessed letters remain with underscores 
-		if (this.matchedLetters.indexOf(this.lettersOfWord[i]) !== -1) {
+		if (this.correctLetter.indexOf(this.lettersOfWord[i]) !== -1) {
 			wordView += this.lettersOfWord[i];
 		}
 
@@ -143,16 +143,22 @@ rebuildWordView: function() {
 	}
 
 	//Update the page with the new string we built 
+	document.querySelector("#current-word").innerHTML = wordView;
+
+},
+
+restartGame: function () {
 	document.querySelector("#guessed-letter").innerHTML = "";
 	this.currentWord = null;
 	this.lettersOfWord = [];
 	this.guessedLetter = [];
 	this.correctLetter = [];
-	this.guessesLEft = 0;
+	this.guessesLeft = 0;
 	this.totalGuesses = 0;
 	this.letterGuessed = null; 
 	this.game ();
-	this.rebuildWordView();
+	this.setUnderscore();
+
 },
 
 //Function that checks for user win
@@ -174,8 +180,8 @@ updateWins: function () {
 	 //If a letter appears in letterofWord arra, but not in the correctLetter array 
 	 //set win to false
 
-	 for( let i = 0; i < this.lettersOfWord[i] === -1) {
-	 	if (this.correctLetter.indexOf(this.letterOfWord[i]) === -1){
+	 for( let i = 0; i < this.lettersOfWord.length; i ++) {
+	 	if (this.correctLetter.indexOf(this.lettersOfWord[i]) === -1){
 	 	win = false; 
 
 	 }
@@ -189,11 +195,11 @@ updateWins: function () {
 
 //Update wins on the page
 document.querySelector("#Wins").innerHTML = this.answerArray[this.currentWord].song +
-	" By " + this.wordInPlay;
+	" By " + this.currentWord;
 
 	//Update the image of the Artist on page 
 
-	document.querySelector("#bandDiv").innerHTML = 
+	document.querySelector("#artistDiv").innerHTML = 
 	"<img class='artist-image' src='images/" + 
 	this.answerArray[this.currentWord].picture + "' alt='" +
 	this.answerArray[this.currentWord].song + "'>";
@@ -205,15 +211,15 @@ document.querySelector("#Wins").innerHTML = this.answerArray[this.currentWord].s
 
 	//return true, which will trigger the restart of our game in the updatePage function 
 		return true;
-}
+	}
 	//If win is false. return false to the updatePage function. 
 
 		return false;
-}
+	}
 };
 
 	//Initialize the game when page load 
-	hangmanGame.game();
+	game.beginGame();
 
 
 	//on key press 
@@ -221,11 +227,11 @@ document.querySelector("#Wins").innerHTML = this.answerArray[this.currentWord].s
 	document.onkeyup = function(event) {
 
 		//capture pressed key and make it lowercase 
-		hangmanGAme.letterGuessed = String.fromCharcode(event.which).toLowerCase();
+		game.letterGuessed = String.fromCharCode(event.which).toLowerCase();
 
 		//pass guessed letter into updatePage function 
 
-		hangmanGame.updatePage(hangmanGame.letter.Guessed);
+		game.updatePage(game.letterGuessed);
 
 };
 
