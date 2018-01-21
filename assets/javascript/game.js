@@ -39,7 +39,7 @@ wins: 0,
 
 beginGame: function() {
 //pick random word
-	let answers = Object.keys(this.wordChoices);
+	let answers = Object.keys(this.answerArray);
 	this.currentWord = answers[Math.floor(Math.random() * answers.length)];
 
 //separate individual letters
@@ -48,7 +48,7 @@ this.lettersOfWord = this.currentWord.split("");
 
 //Creates representation of word being guessed and displays to page 
 //At start of game sets underscores to respresent each letter in word
-this.setUnderscores();
+this.setUnderscore();
 //Generates and renders to HTML number of guesses user gets
 this.processUpdateTotalGuesses();
 
@@ -96,7 +96,7 @@ updateGuesses: function(letter) {
 processUpdateTotalGuesses: function() {
 	//Number of guesses increase with word length 
 	this.totalGuesses = this.lettersOfWord.length + 5;
-	this.guessesLEft = this.totalGuesses;
+	this.guessesLeft = this.totalGuesses;
 
 
 	//Render the guesses left, to the page 
@@ -111,7 +111,7 @@ updateMatchedLetters: function(letter) {
 	for (let i = 0; i < this.letterOfWord.length; i++) {
 		//If the guessed letter is in Solution, and ha snot been guessed..
 
-		if ((letter ===this.lettersOfWord[i]) && (this.correctLetter.indexOf(letter) === -1)) {
+		if ((letter === this.lettersOfWord[i]) && (this.correctLetter.indexOf(letter) === -1)) {
 			
 			//Push the newly guessed letter into the matchedLetters array
 			this.correctLetter.push(letter);
