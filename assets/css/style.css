@@ -1,9 +1,9 @@
-#container, 
-#{
+/*#container, 
+{
 	position: absolute;
 	top: 300px;
 	left: 500px;
-}
+}*/
 
 div,
 #game-section, 
@@ -17,13 +17,18 @@ div,
 	background-color: #FFF;
 
 }
+/*
+#container {
+	float: right;
+}*/
 
 #guesses-remaining,
+#guessed-letter
 {
-	border-style: dashed;
-	border-color: #FC12C2;
+	border-style: solid;
+	border-color: #84AAF8;
 	width: 150px;
-	height: 200px;
+	height: 55px;
 	background-color: #FFF;
 }
 
