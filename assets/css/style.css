@@ -1,11 +1,13 @@
-#container {
+#container, 
+#{
 	position: absolute;
 	top: 300px;
 	left: 500px;
 }
 
 div,
-#game-section {
+#game-section, 
+#artistDiv {
 	border-style: dashed;
 	border-color: #FC12C2;
 	float: left;
@@ -16,6 +18,15 @@ div,
 
 }
 
+#guesses-remaining,
+{
+	border-style: dashed;
+	border-color: #FC12C2;
+	width: 150px;
+	height: 200px;
+	background-color: #FFF;
+}
+
 
 #div2 {
 	text-align: left;
@@ -24,12 +35,12 @@ div,
 	
 }
 
-.artist-image { 
+/*.artist-image { 
 	height: 500px;
 	width: 350px; 
 	margin-left: 100px;
 	padding-top: 65px;
-}
+}*/
 
 body {
 	background: #D9CEFD;
