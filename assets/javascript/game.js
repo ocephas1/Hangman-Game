@@ -44,13 +44,13 @@ beginGame: function() {
 
 //separate individual letters
 
-this.lettersOfWord = this.currentWord.split("");
+	this.lettersOfWord = this.currentWord.split("");
 
 //Creates representation of word being guessed and displays to page 
 //At start of game sets underscores to respresent each letter in word
-this.setUnderscore();
+	this.setUnderscore();
 //Generates and renders to HTML number of guesses user gets
-this.processUpdateTotalGuesses();
+	this.processUpdateTotalGuesses();
 
 },
 
@@ -78,7 +78,7 @@ updatePage: function(letter) {
 //This function reacts to user making incorrect guess for the first time
 updateGuesses: function(letter) {
 	//letters not in the guessedLetters array, 
-		if ((this.guessedLetter.indexOF(letter) === -1) && (this.lettersOfWord.indexOf(letter) === -1)) {
+		if ((this.guessedLetter.indexOf(letter) === -1) && (this.lettersOfWord.indexOf(letter) === -1)) {
 			//Add the letter to the guessedLetters array
 			this.guessedLetter.push(letter);
 
@@ -108,7 +108,7 @@ processUpdateTotalGuesses: function() {
 
 updateMatchedLetters: function(letter) {
 	//Loop through the letters of the "solution"
-	for (let i = 0; i < this.letterOfWord.length; i++) {
+	for (let i = 0; i < this.lettersOfWord.length; i++) {
 		//If the guessed letter is in Solution, and ha snot been guessed..
 
 		if ((letter === this.lettersOfWord[i]) && (this.correctLetter.indexOf(letter) === -1)) {
@@ -128,7 +128,7 @@ setUnderscore: function() {
 
 
 	//Loop through the letters of the word we are trying to guess 
-	for (let i = 0; i < this.lettersOfWord.length; i ++) {
+	for (let i = 0; i < this.lettersOfWord.length; i++) {
 
 		//Unguessed letters remain with underscores 
 		if (this.correctLetter.indexOf(this.lettersOfWord[i]) !== -1) {
@@ -138,7 +138,7 @@ setUnderscore: function() {
 		//If it hasn't been guessed, display a "_" instead 
 
 		else {
-			wordView += "&nbsp;_&nbsp";
+			wordView += "&nbsp;_&nbsp;";
 		}
 	}
 
@@ -194,7 +194,9 @@ updateWins: function () {
 	this.wins = this.wins + 1;
 
 //Update wins on the page
-document.querySelector("#Wins").innerHTML = this.answerArray[this.currentWord].song +
+	document.querySelector("#wins").innerHTML = this.wins;
+
+	document.querySelector("#music").innerHTML = this.answerArray[this.currentWord].song +
 	" By " + this.currentWord;
 
 	//Update the image of the Artist on page 
